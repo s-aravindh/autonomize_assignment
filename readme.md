@@ -1,11 +1,28 @@
-# Problem Statement.
-Here we have a simple problem, given a DNA sequence (of N, A, C, G, T), count the number of CpGs in the sequence (consecutive CGs).
 
-We have defined a few helper functions / parameters for performing this task.
+# To run the app.
 
-We need you to build a LSTM model and train it to complish this task in PyTorch.
+## install requirements
+```
+pip install -r src/requirements.txt
+```
 
-A good solution will be a model that can be trained, with high confidence in correctness.
-# Solution Tried.
+## start the server:
+```
+cd src
+uvicorn run app:app
+```
 
-# Solution that can be done.
+
+## sample request:
+```curl
+curl -X 'POST' \
+  'http://127.0.0.1:8000/predict' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "model_type": "fixed",
+  "dna_char": "GGGNCGCCCNCTCTTAGGGGGAANNCATTTNGACTGNGTNCGTNTGCAAATACTGNANNTGCCGTGTAATTATNNCGNTACTGTTNNGCNCCACNGCCCAGNAGNTGAGNG"
+}'
+```
+
+model_type is `fixed` or `padded`. if dna_char is less than 128. it should be padded
