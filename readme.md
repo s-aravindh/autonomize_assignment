@@ -10,10 +10,12 @@ pip install -r src/requirements.txt
 ```
 cd src
 uvicorn run app:app
+
+navigate to `http://127.0.0.1:8000/docs` to try directly in open-api
 ```
 
 
-## sample request:
+## sample request (postman curl):
 ```curl
 curl -X 'POST' \
   'http://127.0.0.1:8000/predict' \
